@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ./backend
+    image: ghcr.io/rampolaveni/kangaroo-international-collage-digital-backend:latest
     env_file:
       - ./backend/.env
     environment:
@@ -11,7 +11,7 @@ services:
       - static_files:/app/staticfiles
 
   frontend:
-    build: ./frontend
+    image: ghcr.io/rampolaveni/kangaroo-international-collage-digital-frontend:latest
     ports:
       - "80:80"
       - "443:443"
