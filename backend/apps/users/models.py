@@ -1,0 +1,24 @@
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
+class User(AbstractUser):
+    class Role(models.TextChoices):
+        SUPER_ADMIN = 'SUPER_ADMIN', 'Super Admin'
+        ADMIN = 'ADMIN', 'Admin'
+        TRAINER = 'TRAINER', 'Trainer'
+        STUDENT = 'STUDENT', 'Student'
+
+    role = models.CharField(
+        max_length=20,
+        choices=Role.choices,
+        default=Role.STUDENT,
+    )
+    phone_number = models.CharField(max_length=20, blank=True)
+    is_active_staff = models.BooleanField(
+        default=True,
+        help_text="Deactivate to suspend an Admin/Trainer without deleting their account."
+    )
+
+    def __str__(self):
+        return f"{self.username} ({self.get_role_display()})"
