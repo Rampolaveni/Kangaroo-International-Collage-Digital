@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { Search, Bell, ChevronDown, Plus } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Search, Bell, ChevronDown } from 'lucide-react';
 import { theme } from '../../styles/theme';
 import { useAuth } from '../../auth/AuthContext';
 
@@ -15,7 +15,7 @@ const labelMap: Record<string, string> = {
 
 export default function Header() {
   const location = useLocation();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const segments = location.pathname.split('/').filter(Boolean);

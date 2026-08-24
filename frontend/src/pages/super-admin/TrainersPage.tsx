@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { UserCog, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { getTrainers } from '../../api/trainers';
 import type { Trainer } from '../../types/trainer';
 import { theme } from '../../styles/theme';
